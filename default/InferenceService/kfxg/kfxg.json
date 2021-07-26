@@ -1,0 +1,40 @@
+{
+    "kind": "InferenceService",
+    "apiVersion": "serving.kubeflow.org/v1alpha2",
+    "metadata": {
+        "name": "kfxg",
+        "namespace": "default",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        },
+        "annotations": {
+            "project.seldon.io/default": "default"
+        }
+    },
+    "spec": {
+        "default": {
+            "predictor": {
+                "xgboost": {
+                    "storageUri": "gs://seldon-models/xgboost/iris",
+                    "resources": {
+                        "limits": {
+                            "cpu": "1",
+                            "memory": "1Gi",
+                            "nvidia.com/gpu": "0"
+                        },
+                        "requests": {
+                            "cpu": "100m",
+                            "memory": "1Gi",
+                            "nvidia.com/gpu": "0"
+                        }
+                    }
+                },
+                "logger": {
+                    "mode": "all"
+                }
+            }
+        }
+    },
+    "status": {}
+}
