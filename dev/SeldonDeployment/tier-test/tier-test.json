@@ -6,6 +6,7 @@
         "namespace": "dev",
         "creationTimestamp": null,
         "labels": {
+            "app.kubernetes.io/instance": "a1da4d04-0493-42d9-89c7-13fd18ba1a81-dev",
             "fluentd": "true"
         }
     },
@@ -14,63 +15,6 @@
         "predictors": [
             {
                 "name": "default",
-                "graph": {
-                    "name": "tier-test-container",
-                    "implementation": "SKLEARN_SERVER",
-                    "modelUri": "gs://seldon-models/sklearn/iris",
-                    "logger": {
-                        "mode": "all"
-                    }
-                },
-                "componentSpecs": [
-                    {
-                        "metadata": {
-                            "creationTimestamp": "2021-07-28T09:58:07Z"
-                        },
-                        "spec": {
-                            "containers": [
-                                {
-                                    "name": "tier-test-container",
-                                    "resources": {
-                                        "limits": {
-                                            "cpu": "1",
-                                            "memory": "1Gi",
-                                            "nvidia.com/gpu": "0"
-                                        },
-                                        "requests": {
-                                            "cpu": "100m",
-                                            "memory": "1Gi",
-                                            "nvidia.com/gpu": "0"
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        "hpaSpec": {
-                            "minReplicas": 1,
-                            "maxReplicas": 2,
-                            "metrics": [
-                                {
-                                    "type": "Resource",
-                                    "resource": {
-                                        "name": "cpu",
-                                        "targetAverageUtilization": 10
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "replicas": 1,
-                "annotations": {
-                    "project.seldon.io/tier-test-container": "default"
-                },
-                "engineResources": {},
-                "svcOrchSpec": {},
-                "traffic": 100
-            },
-            {
-                "name": "shadow",
                 "graph": {
                     "name": "tier-test-container",
                     "implementation": "XGBOOST_SERVER",
@@ -111,8 +55,11 @@
                     "seldon.io/canary": "false"
                 },
                 "engineResources": {},
+                "labels": {
+                    "version": "default"
+                },
                 "svcOrchSpec": {},
-                "shadow": true
+                "traffic": 100
             }
         ],
         "annotations": {
