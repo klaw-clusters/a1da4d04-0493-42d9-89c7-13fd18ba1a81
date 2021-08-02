@@ -41,7 +41,7 @@
                                     "--protocol",
                                     "seldonfeedback.http",
                                     "--storage_uri",
-                                    "adserver.cm_models.multiclass_numeric.MultiClassNumeric",
+                                    "gs://tom-seldon-examples/deploy-workshop/multiclassnumeric.joblib",
                                     "--reply_url",
                                     "http://seldon-request-logger.seldon-logs",
                                     "--event_type",
