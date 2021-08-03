@@ -37,7 +37,7 @@
                                     "--model_name",
                                     "multiclassserver",
                                     "--protocol",
-                                    "seldon",
+                                    "Seldon Feedback",
                                     "--storage_uri",
                                     "gs://tom-seldon-examples/deploy-workshop/multiclassnumeric.joblib",
                                     "--reply_url",
