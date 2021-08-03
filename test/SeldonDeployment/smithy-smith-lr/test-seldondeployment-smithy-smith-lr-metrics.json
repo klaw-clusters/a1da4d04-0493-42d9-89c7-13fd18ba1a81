@@ -39,7 +39,7 @@
                                     "--protocol",
                                     "seldonfeedback.http",
                                     "--storage_uri",
-                                    "gs://tom-seldon-examples/deploy-workshop/multiclassnumeric.joblib",
+                                    "gs://tom-seldon-examples/deploy-workshop/sean-greaves/metrics",
                                     "--reply_url",
                                     "http://seldon-request-logger.seldon-logs",
                                     "--event_type",
