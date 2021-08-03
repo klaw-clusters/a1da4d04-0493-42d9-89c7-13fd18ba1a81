@@ -38,8 +38,6 @@
                                     "multiclassserver",
                                     "--http_port",
                                     "8080",
-                                    "--protocol",
-                                    "Seldon Feedback",
                                     "--storage_uri",
                                     "gs://tom-seldon-examples/deploy-workshop/multiclassnumeric.joblib",
                                     "--reply_url",
