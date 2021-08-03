@@ -36,8 +36,12 @@
                                 "args": [
                                     "--model_name",
                                     "multiclassserver",
+                                    "--protocol",
+                                    "seldon",
                                     "--storage_uri",
                                     "gs://tom-seldon-examples/deploy-workshop/multiclassnumeric.joblib",
+                                    "--reply_url",
+                                    "http://seldon-request-logger.seldon-logs",
                                     "--event_type",
                                     "io.seldon.serving.feedback.metrics",
                                     "--event_source",
