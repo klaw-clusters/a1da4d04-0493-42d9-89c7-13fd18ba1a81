@@ -24,7 +24,7 @@
                             "autoscaling.knative.dev/maxScale": "1",
                             "autoscaling.knative.dev/minScale": "1",
                             "prometheus.io/path": "/v1/metrics",
-                            "prometheus.io/port": "8080",
+                            "prometheus.io/port": "",
                             "prometheus.io/scrape": "true"
                         }
                     },
@@ -36,8 +36,6 @@
                                 "args": [
                                     "--model_name",
                                     "multiclassserver",
-                                    "--http_port",
-                                    "8080",
                                     "--storage_uri",
                                     "gs://tom-seldon-examples/deploy-workshop/multiclassnumeric.joblib",
                                     "--reply_url",
@@ -50,7 +48,7 @@
                                 ],
                                 "ports": [
                                     {
-                                        "containerPort": 8080,
+                                        "containerPort": 0,
                                         "protocol": "TCP"
                                     }
                                 ],
