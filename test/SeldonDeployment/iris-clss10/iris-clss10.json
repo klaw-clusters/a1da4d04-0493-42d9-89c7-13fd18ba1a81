@@ -1,0 +1,78 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "iris-clss10",
+        "namespace": "test",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "iris-clss10",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "input-transformer",
+                    "children": [
+                        {
+                            "name": "iris-clss10-container",
+                            "implementation": "SKLEARN_SERVER",
+                            "modelUri": "gs://seldon-models/sklearn/iris",
+                            "logger": {
+                                "mode": "all"
+                            }
+                        }
+                    ],
+                    "type": "TRANSFORMER"
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-08-10T07:44:38Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "iris-clss10-container",
+                                    "resources": {
+                                        "limits": {
+                                            "cpu": "1",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        },
+                                        "requests": {
+                                            "cpu": "100m",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "input-transformer",
+                                    "image": "seangreaves/double-transformer:0.1",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/input-transformer": "default",
+                    "project.seldon.io/iris-clss10-container": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon"
+    },
+    "status": {}
+}
