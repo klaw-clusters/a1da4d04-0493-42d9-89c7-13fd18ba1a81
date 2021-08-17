@@ -1,0 +1,66 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "cfx",
+        "namespace": "dev",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "cfx",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "cfx-container",
+                    "implementation": "TENSORFLOW_SERVER",
+                    "modelUri": "gs://seldon-models/tfserving/cifar10/resnet32/saved_model.pb",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-08-17T13:05:19Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "cfx-container",
+                                    "resources": {
+                                        "limits": {
+                                            "cpu": "1",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        },
+                                        "requests": {
+                                            "cpu": "100m",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/cfx-container": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon"
+    },
+    "status": {}
+}
