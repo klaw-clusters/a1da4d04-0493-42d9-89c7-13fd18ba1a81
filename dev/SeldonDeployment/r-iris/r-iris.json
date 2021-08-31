@@ -26,12 +26,13 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-08-31T19:58:15Z"
+                            "creationTimestamp": "2021-08-31T20:02:40Z"
                         },
                         "spec": {
                             "containers": [
                                 {
                                     "name": "r-iris-container",
+                                    "image": "seangreaves/r-iris:0.1",
                                     "resources": {
                                         "limits": {
                                             "cpu": "1",
