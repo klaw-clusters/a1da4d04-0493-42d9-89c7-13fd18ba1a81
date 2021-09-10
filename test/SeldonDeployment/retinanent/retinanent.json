@@ -1,0 +1,66 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "retinanent",
+        "namespace": "test",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "retinanent",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "retinanent-container",
+                    "type": "MODEL",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-09-10T09:03:22Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "retinanent-container",
+                                    "image": "seangreaves/retinanet:0.1",
+                                    "resources": {
+                                        "limits": {
+                                            "cpu": "1",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        },
+                                        "requests": {
+                                            "cpu": "1",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/retinanent-container": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon"
+    },
+    "status": {}
+}
