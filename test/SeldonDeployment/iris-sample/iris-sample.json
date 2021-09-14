@@ -21,6 +21,7 @@
                         "type": "REST"
                     },
                     "modelUri": "s3://data/model.joblib",
+                    "envSecretRefName": "seldon-job-secret",
                     "logger": {
                         "mode": "all"
                     }
@@ -28,7 +29,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-14T15:04:08Z"
+                            "creationTimestamp": "2021-09-14T15:27:03Z"
                         },
                         "spec": {
                             "containers": [
