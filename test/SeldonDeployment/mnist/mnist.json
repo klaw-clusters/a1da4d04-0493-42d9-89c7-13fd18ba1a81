@@ -20,7 +20,7 @@
                     "endpoint": {
                         "type": "REST"
                     },
-                    "modelUri": "s3://data/model",
+                    "modelUri": "s3://seldon-models/triton/tf_mnist",
                     "envSecretRefName": "seldon-job-secret",
                     "logger": {
                         "mode": "all"
@@ -29,7 +29,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-23T20:43:23Z"
+                            "creationTimestamp": "2021-09-23T21:11:09Z"
                         },
                         "spec": {
                             "containers": [
