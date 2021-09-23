@@ -16,7 +16,7 @@
                 "name": "default",
                 "graph": {
                     "name": "mnist-container",
-                    "implementation": "TENSORFLOW_SERVER",
+                    "implementation": "TRITON_SERVER",
                     "endpoint": {
                         "type": "REST"
                     },
@@ -29,7 +29,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-23T20:42:48Z"
+                            "creationTimestamp": "2021-09-23T20:43:23Z"
                         },
                         "spec": {
                             "containers": [
