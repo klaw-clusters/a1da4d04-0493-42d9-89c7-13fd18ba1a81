@@ -20,7 +20,7 @@
                     "endpoint": {
                         "type": "REST"
                     },
-                    "modelUri": "s3://data/1",
+                    "modelUri": "s3://data/model",
                     "envSecretRefName": "seldon-job-secret",
                     "logger": {
                         "mode": "all"
@@ -29,7 +29,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-23T20:29:34Z"
+                            "creationTimestamp": "2021-09-23T20:39:06Z"
                         },
                         "spec": {
                             "containers": [
@@ -37,7 +37,7 @@
                                     "name": "mnist-container",
                                     "resources": {
                                         "limits": {
-                                            "cpu": "1",
+                                            "cpu": "2",
                                             "memory": "1Gi"
                                         },
                                         "requests": {
