@@ -29,12 +29,12 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-24T09:10:26Z"
+                            "creationTimestamp": "2021-09-24T09:10:45Z"
                         },
                         "spec": {
                             "containers": [
                                 {
-                                    "name": "mnist-container",
+                                    "name": "mnist",
                                     "resources": {
                                         "limits": {
                                             "cpu": "2",
