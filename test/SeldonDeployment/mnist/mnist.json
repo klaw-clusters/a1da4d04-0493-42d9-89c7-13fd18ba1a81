@@ -15,7 +15,7 @@
             {
                 "name": "default",
                 "graph": {
-                    "name": "mnist-container",
+                    "name": "mnist",
                     "implementation": "TRITON_SERVER",
                     "endpoint": {
                         "type": "REST"
@@ -29,7 +29,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-24T09:08:55Z"
+                            "creationTimestamp": "2021-09-24T09:10:26Z"
                         },
                         "spec": {
                             "containers": [
