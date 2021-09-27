@@ -1,12 +1,11 @@
 {
     "kind": "SeldonDeployment",
-    "apiVersion": "machinelearning.seldon.io/v1",
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
     "metadata": {
         "name": "mlflow-vine",
         "namespace": "test",
         "creationTimestamp": null,
         "labels": {
-            "app.kubernetes.io/instance": "a1da4d04-0493-42d9-89c7-13fd18ba1a81-test",
             "fluentd": "true"
         }
     },
@@ -29,7 +28,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-27T12:53:02Z"
+                            "creationTimestamp": "2021-09-27T17:49:33Z"
                         },
                         "spec": {
                             "containers": [
@@ -75,7 +74,15 @@
                 "replicas": 1,
                 "engineResources": {},
                 "svcOrchSpec": {},
-                "traffic": 100
+                "traffic": 100,
+                "explainer": {
+                    "type": "AnchorTabular",
+                    "modelUri": "s3://explainer",
+                    "containerSpec": {
+                        "name": "",
+                        "resources": {}
+                    }
+                }
             }
         ],
         "annotations": {
