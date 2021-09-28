@@ -28,7 +28,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-28T06:02:17Z"
+                            "creationTimestamp": "2021-09-28T06:10:20Z"
                         },
                         "spec": {
                             "containers": [
@@ -37,7 +37,7 @@
                                     "resources": {
                                         "limits": {
                                             "cpu": "1",
-                                            "memory": "1Gi"
+                                            "memory": "2Gi"
                                         },
                                         "requests": {
                                             "cpu": "1",
