@@ -81,7 +81,7 @@
                 "graph": {
                     "name": "mlflow-bayan-container",
                     "implementation": "MLFLOW_SERVER",
-                    "modelUri": "gs://tom-seldon-examples/deploy-workshop/sean-greaves/modelv2",
+                    "modelUri": "gs://tom-seldon-examples/deploy-workshop/bayan/modelv2",
                     "logger": {
                         "mode": "all"
                     }
@@ -89,7 +89,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-28T10:01:53Z"
+                            "creationTimestamp": "2021-09-28T10:02:45Z"
                         },
                         "spec": {
                             "containers": [
