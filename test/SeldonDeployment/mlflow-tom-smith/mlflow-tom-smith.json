@@ -20,7 +20,7 @@
                     "endpoint": {
                         "type": "REST"
                     },
-                    "modelUri": "gs://tom-seldon-examples/deploy-workshop/tom-smith/modelv1",
+                    "modelUri": "gs://tom-seldon-examples/mlflow/model",
                     "logger": {
                         "mode": "all"
                     }
@@ -28,7 +28,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-09-28T06:46:59Z"
+                            "creationTimestamp": "2021-09-28T06:54:09Z"
                         },
                         "spec": {
                             "containers": [
