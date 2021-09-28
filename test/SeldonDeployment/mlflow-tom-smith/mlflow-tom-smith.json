@@ -75,22 +75,7 @@
                 "replicas": 1,
                 "engineResources": {},
                 "svcOrchSpec": {},
-                "traffic": 100,
-                "explainer": {
-                    "type": "AnchorTabular",
-                    "modelUri": "s3://explainer",
-                    "containerSpec": {
-                        "name": "",
-                        "resources": {}
-                    },
-                    "config": {
-                        "batch_size": "100",
-                        "delta": "0.6",
-                        "tau": "0.5",
-                        "threshold": "0.1"
-                    },
-                    "envSecretRefName": "seldon-job-secret"
-                }
+                "traffic": 100
             }
         ],
         "annotations": {
