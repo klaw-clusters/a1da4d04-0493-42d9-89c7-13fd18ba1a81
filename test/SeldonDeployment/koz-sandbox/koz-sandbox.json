@@ -6,6 +6,7 @@
         "namespace": "test",
         "creationTimestamp": null,
         "labels": {
+            "app.kubernetes.io/instance": "a1da4d04-0493-42d9-89c7-13fd18ba1a81-test",
             "fluentd": "true"
         }
     },
@@ -14,50 +15,6 @@
         "predictors": [
             {
                 "name": "default",
-                "graph": {
-                    "name": "koz-sandbox-container",
-                    "implementation": "SKLEARN_SERVER",
-                    "modelUri": "gs://seldon-models/sklearn/iris",
-                    "logger": {
-                        "mode": "all"
-                    }
-                },
-                "componentSpecs": [
-                    {
-                        "metadata": {
-                            "creationTimestamp": "2021-10-08T19:42:06Z"
-                        },
-                        "spec": {
-                            "containers": [
-                                {
-                                    "name": "koz-sandbox-container",
-                                    "resources": {
-                                        "limits": {
-                                            "cpu": "1",
-                                            "memory": "1Gi",
-                                            "nvidia.com/gpu": "0"
-                                        },
-                                        "requests": {
-                                            "cpu": "100m",
-                                            "memory": "1Gi",
-                                            "nvidia.com/gpu": "0"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "replicas": 1,
-                "annotations": {
-                    "project.seldon.io/koz-sandbox-container": "default"
-                },
-                "engineResources": {},
-                "svcOrchSpec": {},
-                "traffic": 90
-            },
-            {
-                "name": "canary",
                 "graph": {
                     "name": "koz-sandbox-container",
                     "implementation": "XGBOOST_SERVER",
@@ -94,12 +51,14 @@
                 ],
                 "replicas": 1,
                 "annotations": {
-                    "project.seldon.io/koz-sandbox-container": "default",
-                    "seldon.io/canary": "true"
+                    "project.seldon.io/koz-sandbox-container": "default"
                 },
                 "engineResources": {},
+                "labels": {
+                    "version": "default"
+                },
                 "svcOrchSpec": {},
-                "traffic": 10
+                "traffic": 100
             }
         ],
         "annotations": {
