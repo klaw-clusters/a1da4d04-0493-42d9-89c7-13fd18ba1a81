@@ -28,7 +28,7 @@
                 "componentSpecs": [
                     {
                         "metadata": {
-                            "creationTimestamp": "2021-10-13T20:08:28Z"
+                            "creationTimestamp": "2021-10-13T20:11:56Z"
                         },
                         "spec": {
                             "containers": [
@@ -50,10 +50,10 @@
                                             "port": "http",
                                             "scheme": "HTTP"
                                         },
-                                        "initialDelaySeconds": 80,
+                                        "initialDelaySeconds": 160,
                                         "periodSeconds": 5,
                                         "successThreshold": 1,
-                                        "failureThreshold": 200
+                                        "failureThreshold": 400
                                     },
                                     "readinessProbe": {
                                         "httpGet": {
@@ -61,10 +61,10 @@
                                             "port": "http",
                                             "scheme": "HTTP"
                                         },
-                                        "initialDelaySeconds": 80,
+                                        "initialDelaySeconds": 160,
                                         "periodSeconds": 5,
                                         "successThreshold": 1,
-                                        "failureThreshold": 200
+                                        "failureThreshold": 400
                                     }
                                 }
                             ]
