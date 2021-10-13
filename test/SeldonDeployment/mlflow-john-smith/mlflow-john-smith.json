@@ -1,0 +1,87 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
+    "metadata": {
+        "name": "mlflow-john-smith",
+        "namespace": "test",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "mlflow-john-smith",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "mlflow-john-smith-container",
+                    "implementation": "MLFLOW_SERVER",
+                    "endpoint": {
+                        "type": "REST"
+                    },
+                    "modelUri": "gs://tom-seldon-examples/deploy-workshop/john-smith/modelv1",
+                    "logger": {
+                        "mode": "all"
+                    }
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-10-13T20:23:51Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "mlflow-john-smith-container",
+                                    "resources": {
+                                        "limits": {
+                                            "cpu": "1",
+                                            "memory": "2Gi"
+                                        },
+                                        "requests": {
+                                            "cpu": "1",
+                                            "memory": "1Gi"
+                                        }
+                                    },
+                                    "livenessProbe": {
+                                        "httpGet": {
+                                            "path": "/health/ping",
+                                            "port": "http",
+                                            "scheme": "HTTP"
+                                        },
+                                        "initialDelaySeconds": 160,
+                                        "periodSeconds": 5,
+                                        "successThreshold": 1,
+                                        "failureThreshold": 400
+                                    },
+                                    "readinessProbe": {
+                                        "httpGet": {
+                                            "path": "/health/ping",
+                                            "port": "http",
+                                            "scheme": "HTTP"
+                                        },
+                                        "initialDelaySeconds": 160,
+                                        "periodSeconds": 5,
+                                        "successThreshold": 1,
+                                        "failureThreshold": 400
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon",
+        "transport": "rest"
+    },
+    "status": {}
+}
