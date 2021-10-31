@@ -6,6 +6,7 @@
         "namespace": "default",
         "creationTimestamp": null,
         "labels": {
+            "app.kubernetes.io/instance": "a1da4d04-0493-42d9-89c7-13fd18ba1a81-default",
             "fluentd": "true"
         }
     },
@@ -66,7 +67,21 @@
                 },
                 "engineResources": {},
                 "svcOrchSpec": {},
-                "traffic": 100
+                "traffic": 100,
+                "explainer": {
+                    "type": "AnchorTabular",
+                    "modelUri": "gs://tom-seldon-examples/noitsu/explainer/",
+                    "containerSpec": {
+                        "name": "",
+                        "resources": {}
+                    },
+                    "config": {
+                        "batch_size": "100",
+                        "delta": "0.1",
+                        "tau": "0.15",
+                        "threshold": "0.95"
+                    }
+                }
             }
         ],
         "annotations": {
