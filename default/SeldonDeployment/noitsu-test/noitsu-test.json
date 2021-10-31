@@ -1,0 +1,78 @@
+{
+    "kind": "SeldonDeployment",
+    "apiVersion": "machinelearning.seldon.io/v1",
+    "metadata": {
+        "name": "noitsu-test",
+        "namespace": "default",
+        "creationTimestamp": null,
+        "labels": {
+            "fluentd": "true"
+        }
+    },
+    "spec": {
+        "name": "noitsu-test",
+        "predictors": [
+            {
+                "name": "default",
+                "graph": {
+                    "name": "input-transformer",
+                    "children": [
+                        {
+                            "name": "noitsu-test-container",
+                            "implementation": "SKLEARN_SERVER",
+                            "modelUri": "gs://tom-seldon-examples/noitsu/model/",
+                            "logger": {
+                                "mode": "all"
+                            }
+                        }
+                    ],
+                    "type": "TRANSFORMER"
+                },
+                "componentSpecs": [
+                    {
+                        "metadata": {
+                            "creationTimestamp": "2021-10-31T12:42:05Z"
+                        },
+                        "spec": {
+                            "containers": [
+                                {
+                                    "name": "noitsu-test-container",
+                                    "resources": {
+                                        "limits": {
+                                            "cpu": "1",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        },
+                                        "requests": {
+                                            "cpu": "100m",
+                                            "memory": "1Gi",
+                                            "nvidia.com/gpu": "0"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "input-transformer",
+                                    "image": "tomfarrand/noitsu-preprocessor:0.2",
+                                    "resources": {}
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "replicas": 1,
+                "annotations": {
+                    "project.seldon.io/input-transformer": "default",
+                    "project.seldon.io/noitsu-test-container": "default"
+                },
+                "engineResources": {},
+                "svcOrchSpec": {},
+                "traffic": 100
+            }
+        ],
+        "annotations": {
+            "seldon.io/engine-seldon-log-messages-externally": "true"
+        },
+        "protocol": "seldon"
+    },
+    "status": {}
+}
